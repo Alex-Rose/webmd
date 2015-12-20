@@ -1,8 +1,12 @@
-var server = 'http://step.polymtl.ca';
-var basepath = '/~alexrose/markdown/';
-var contentPath = 'content/';
+var server = '';
+var basepath = '';
+var contentPath = '';
 
 $(document).ready(function() {
+    server = config.server;
+    basepath = config.basepath;
+    contentPath = config.contentPath;
+    
     updateContent(window.location.pathname);
 });
 

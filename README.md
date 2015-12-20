@@ -9,5 +9,5 @@ Themes are from bootstrap and otrher places such as [strapdown.js]
 
 ## How to use
 * Simply put all .md files in `content` directory. 
-* Change `basepath` javascript variable
+* Configure `conf.js` to reflect your environment
 * Request pages using url : example.com/readme-numero-deux.md
