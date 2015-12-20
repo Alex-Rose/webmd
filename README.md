@@ -1,0 +1,13 @@
+# Web markdown viewer
+
+This simple static html page uses ajax to load a markdown file
+and [markdown-js](https://github.com/evilstreak/markdown-js) to
+render it. 
+
+Themes are from bootstrap and otrher places such as [strapdown.js]
+(http://strapdownjs.com/)
+
+## How to use
+* Simply put all .md files in `content` directory. 
+* Change `basepath` javascript variable
+* Request pages using url : example.com/reamde-numero-deux.md

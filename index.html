@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<script src="jquery-2.1.4.min.js"></script>
+<script src="markdown.min.js"></script>
+<title>STEP wiki</title>
+
+<xmp theme="united" style="display:none;" id="render" href="content/example.md">
+</xmp>
+<div id="content">
+
+</div>
+<script src="v/0.2/strapdown.js"></script>
+
+<script>
+
+    var server = 'http://step.polymtl.ca';
+	var basepath = '/~alexrose/markdown/';
+	var contentPath = 'content/';
+	
+	$(document).ready(function() {
+		updateContent(window.location.pathname);
+	});
+
+    // Update content with given markdown
+    // URL should be either full path or relative chrooted to content folder
+	function updateContent(url) {
+		if (url.match("^" + basepath)) {
+//            if (!url.match("^" + basepath + contentPath)) {
+                url = url.substring(basepath.length);
+  //          }
+		}
+
+		if (!url) {
+			url = "index.md";
+		}
+        
+        if (url.match(".md$")){ 
+            url = contentPath + url;
+        }
+
+		$.ajax({
+		method: 'GET',
+		url: url
+		}).done(setMarkdown);
+	}
+
+	function setMarkdown(content) { 
+		$('#content').html(markdown.toHTML(content));
+	}
+    
+    $(document).on('click', 'a', (function(e) {
+            var url = $(this).attr('href');
+            if (!url.match("^http") && url.match(".md$")) {
+                e.preventDefault();
+                updateContent(url);
+                var prevUrl = window.location.href;
+                var prevPath = window.location.pathname;
+                prevPath = prevPath.substring(basepath.length);
+                
+                window.history.pushState({url: prevUrl, path: prevPath}, "STEP wiki - " + prevPath, url);
+            }
+        })
+    );
+    
+    window.onpopstate = function(e){
+        console.log(e.state);
+        if(e.state){
+            console.log(e.state.url);
+            updateContent(e.state.path);
+        }
+        else { 
+            window.location.href = window.location.href;
+        }
+    };
+
+</script>
+</html>
