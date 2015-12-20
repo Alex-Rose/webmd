@@ -5,9 +5,9 @@ and [markdown-js](https://github.com/evilstreak/markdown-js) to
 render it. 
 
 Themes are from bootstrap and otrher places such as [strapdown.js]
-(http://strapdownjs.com/)
+(http://strapdownjs.com/) and [bootswatch](https://github.com/thomaspark/bootswatch)
 
 ## How to use
 * Simply put all .md files in `content` directory. 
 * Change `basepath` javascript variable
-* Request pages using url : example.com/reamde-numero-deux.md
+* Request pages using url : example.com/readme-numero-deux.md
