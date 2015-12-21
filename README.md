@@ -4,8 +4,7 @@ This simple static html page uses ajax to load a markdown file
 and [markdown-js](https://github.com/evilstreak/markdown-js) to
 render it. 
 
-Themes are from bootstrap and otrher places such as [strapdown.js]
-(http://strapdownjs.com/) and [bootswatch](https://github.com/thomaspark/bootswatch)
+Themes are from bootstrap and [bootswatch](https://github.com/thomaspark/bootswatch)
 
 ## How to use
 * Simply put all .md files in `content` directory. 
