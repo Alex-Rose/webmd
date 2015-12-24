@@ -1,6 +1,6 @@
 $(document).ready(function() {
     if (window.localStorage) {
-        var theme = localStorage.getItem('theme');
+        var theme = localStorage.getItem('webmd_theme');
         if (theme && theme != 'default') {
             changeTheme(theme);
         }
@@ -21,6 +21,6 @@ $(document).on('click', 'a.theme', function(e) {
             url = 'default';
         }
         
-        localStorage.setItem('theme', url);
+        localStorage.setItem('webmd_theme', url);
     }
 });
